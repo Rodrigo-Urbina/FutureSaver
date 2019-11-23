@@ -246,26 +246,11 @@ function changeUser() {
         }
     })
 
-    /*$.each(users, function (index, value) {
-        if (changeID === value[0].id) {
-            found = true;
-            foundIndex = index;
-            return true;
-        }
-    })*/
-
     console.log(truePass);
     console.log(changePass);
     if (users[foundIndex][0].contra == changePass) {
         passRight = true;
     }
-
-    /*$.each(users, function (index, value) {
-        if (changePass == value[0].contra) {
-            passRight = true;
-            return true;
-        }
-    })*/
 
     $('#formUser').val('');
     $('#formPass').val('');
