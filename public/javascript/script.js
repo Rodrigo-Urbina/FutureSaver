@@ -227,6 +227,7 @@ function closeSession() {
 }
 
 function changeUser() {
+    console.log(users);
     let changeUsername = $('#formUser').val();
     let changeID = parseInt($('#formID').val());
     let changePass = $('#formPass').val();
@@ -255,7 +256,7 @@ function changeUser() {
 
     console.log(truePass);
     console.log(changePass);
-    if (users[foundIndex].contra == changePass) {
+    if (users[foundIndex][0].contra == changePass) {
         passRight = true;
     }
 
