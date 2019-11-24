@@ -2,7 +2,7 @@
 var loggedInUser = 0;
 var users = [];
 var inversiones = [];
-var fecha = today();
+var fecha = new Date();
 
 var tab = {
     value: 0
@@ -317,7 +317,7 @@ function setUser(index, callback) {
 }
 
 function setDate() {
-    $('#tab3').html('<a href="#">' + fecha + '</a>');
+    $('#tab3').html('<a href="#">' + fecha.getFullYear() + '/' + fecha.getMonth() + '/' + fecha.getDate() + '</a>');
 }
 
 function getDate() {
@@ -535,8 +535,8 @@ function cambiarFecha() {
             default:
                 mm = 'error'
         }
-
-        fecha = mm + '/' + dd + '/' + yyyy;
+        fecha = new Date(yyyy + '-' + mm + '-' + dd);
+        //fecha = mm + '/' + dd + '/' + yyyy;
 
         setDate();
         $('.datepicker').val('');
