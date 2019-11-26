@@ -2,7 +2,7 @@
 var loggedInUser = 0;
 var users = [];
 var inversiones = [];
-var fecha = today();
+var fecha = new Date();
 
 var tab = {
     value: 0
@@ -227,6 +227,7 @@ function closeSession() {
 }
 
 function changeUser() {
+    console.log(users);
     let changeUsername = $('#formUser').val();
     let changeID = parseInt($('#formID').val());
     let changePass = $('#formPass').val();
@@ -245,26 +246,11 @@ function changeUser() {
         }
     })
 
-    /*$.each(users, function (index, value) {
-        if (changeID === value[0].id) {
-            found = true;
-            foundIndex = index;
-            return true;
-        }
-    })*/
-
     console.log(truePass);
     console.log(changePass);
-    if (users[foundIndex].contra == changePass) {
+    if (users[foundIndex][0].contra == changePass) {
         passRight = true;
     }
-
-    /*$.each(users, function (index, value) {
-        if (changePass == value[0].contra) {
-            passRight = true;
-            return true;
-        }
-    })*/
 
     $('#formUser').val('');
     $('#formPass').val('');
@@ -331,7 +317,7 @@ function setUser(index, callback) {
 }
 
 function setDate() {
-    $('#tab3').html('<a href="#">' + fecha + '</a>');
+    $('#tab3').html('<a href="#">' + fecha.getFullYear() + '/' + fecha.getMonth() + '/' + fecha.getDate() + '</a>');
 }
 
 function getDate() {
@@ -549,8 +535,8 @@ function cambiarFecha() {
             default:
                 mm = 'error'
         }
-
-        fecha = mm + '/' + dd + '/' + yyyy;
+        fecha = new Date(yyyy + '-' + mm + '-' + dd);
+        //fecha = mm + '/' + dd + '/' + yyyy;
 
         setDate();
         $('.datepicker').val('');
